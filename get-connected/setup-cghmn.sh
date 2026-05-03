@@ -446,6 +446,12 @@ step_init() {
 			failed "adding CGHMN DNS server to DNS server list (.cghmn)"
 		uci -q add_list dhcp.@dnsmasq[-1].server='/retro/100.64.12.2' || \
 			failed "adding CGHMN DNS server to DNS server list (.retro)"
+		uci -q add_list dhcp.@dnsmasq[-1].server='/chivanet/100.64.12.2' || \
+			failed "adding CGHMN DNS server to DNS server list (.chivanet)"
+		uci -q add_list dhcp.@dnsmasq[-1].server='/mac/100.64.12.2' || \
+			failed "adding CGHMN DNS server to DNS server list (.mac)"
+		uci -q add_list dhcp.@dnsmasq[-1].server='/goat/100.64.12.2' || \
+			failed "adding CGHMN DNS server to DNS server list (.goat)"
 	fi
 
 	echo_verbose "Committing UCI configuration"

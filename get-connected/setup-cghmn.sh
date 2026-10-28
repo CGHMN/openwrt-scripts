@@ -440,11 +440,11 @@ step_init() {
 		set dhcp.@dnsmasq[-1].rebind_protection='0'
 	EOUCI
 
-	if ! uci -q get dhcp.@dnsmasq[-1].server | grep -q "100.64.12.2"; then
+	if ! uci -q get dhcp.@dnsmasq[-1].server | grep -q "100.64.64.64"; then
 		echo_verbose "Adding CGHMN DNS server to DNS server list"
-		uci -q add_list dhcp.@dnsmasq[-1].server='/cghmn/100.64.12.2' || \
+		uci -q add_list dhcp.@dnsmasq[-1].server='/cghmn/100.64.64.64' || \
 			failed "adding CGHMN DNS server to DNS server list (.cghmn)"
-		uci -q add_list dhcp.@dnsmasq[-1].server='/retro/100.64.12.2' || \
+		uci -q add_list dhcp.@dnsmasq[-1].server='/retro/100.64.64.64' || \
 			failed "adding CGHMN DNS server to DNS server list (.retro)"
 	fi
 
